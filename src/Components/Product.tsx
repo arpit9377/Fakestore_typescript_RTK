@@ -1,7 +1,7 @@
 
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { fetchProductById, selectSelectedProduct } from '../Redux/ProductSlice';
 import {  AppDispatch } from '../Redux/Store';
 
@@ -21,15 +21,19 @@ const ProductDetail: React.FC = () => {
   }
 
   return (
-    <>
-      <div className='heading'>Product Details</div>
-      <div className="product-detail-container">
-        <h2 className="product-detail-title">{selectedProduct.title}</h2>
-        <img src={selectedProduct.image} alt={selectedProduct.title} className="product-detail-image" />
-        <p className="product-detail-description">{selectedProduct.description}</p>
-        <p className="product-detail-price">Price: ${selectedProduct.price}</p>
+    <div className="container mt-5">
+      <div className="row">
+        <div className="col-md-6">
+          <img src={selectedProduct.image} alt={selectedProduct.title} className="img-fluid" />
+        </div>
+        <div className="col-md-6">
+          <h2 className="mb-4">{selectedProduct.title}</h2>
+          <p className="mb-4">{selectedProduct.description}</p>
+          <p className="mb-4">Price: ${selectedProduct.price}</p>
+          <Link to="/" className="btn btn-primary">Back to Products</Link>
+        </div>
       </div>
-    </>
+    </div>
   );
 };
 

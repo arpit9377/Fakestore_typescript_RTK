@@ -21,7 +21,7 @@ interface ProductState {
     return response.data;
   });
   
-  export const fetchProductById = createAsyncThunk('product/fetchProductById', async (productId: string) => {
+  export const fetchProductById = createAsyncThunk('product/fetchProductById', async (productId:string) => {
     const response = await axios.get(`https://fakestoreapi.com/products/${productId}`);
     return response.data;
   });
